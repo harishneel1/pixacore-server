@@ -1,0 +1,29 @@
+# Core Web Framework
+fastapi==0.115.9
+uvicorn[standard]==0.34.3
+
+# LangChain Core
+langchain==0.3.25
+langchain-core==0.3.63
+langgraph==0.4.8
+langgraph-checkpoint==2.0.26
+langgraph-checkpoint-postgres==2.0.21
+
+# LangChain Integrations
+langchain-openai==0.3.19
+langchain-chroma==0.2.4
+langchain-cohere==0.4.4
+
+# Observability
+langsmith==0.3.44
+
+# Database - Using binary version to avoid compilation issues
+psycopg[binary]==3.2.9
+psycopg-pool==3.2.6
+
+# Core Data Processing
+pydantic==2.11.5
+python-dotenv==1.1.0
+simhash==2.1.2
+rank-bm25==0.2.2
+nltk==3.8.1

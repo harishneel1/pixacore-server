@@ -1,0 +1,7 @@
+venv
+.env
+chroma_a
+.DS_Store
+AMTAGVI
+__pycache__
+*.pyc

@@ -1,0 +1,10 @@
+.env
+.env.local
+.env.production
+__pycache__/
+*.pyc
+.git/
+.gitignore
+README.md
+venv/
+node_modules/
