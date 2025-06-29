@@ -26,6 +26,8 @@ from simhash import Simhash
 from psycopg_pool import AsyncConnectionPool
 from psycopg.rows import dict_row
 from langsmith import Client
+import nltk
+nltk.download('punkt', quiet=True)
 
 # Load environment variables
 load_dotenv()
