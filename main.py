@@ -489,7 +489,7 @@ async def setup_rag_graph():
     # Create connection pool with proper settings
     connection_pool = AsyncConnectionPool(
         conninfo=postgres_url,
-        max_size=20,
+        max_size=3,
         kwargs={
             "autocommit": True,
             "row_factory": dict_row,
