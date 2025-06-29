@@ -496,6 +496,7 @@ async def setup_rag_graph():
         kwargs={
             "autocommit": True,
             "row_factory": dict_row,
+            "prepare_threshold": None,
         }
     )
     
