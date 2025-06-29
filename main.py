@@ -491,7 +491,7 @@ async def setup_rag_graph():
     connection_pool = AsyncConnectionPool(
         conninfo=postgres_url,
         min_size=1,
-        max_size=3,
+        max_size=8,
         timeout=5,
         max_idle=300,
         max_lifetime=1800,
