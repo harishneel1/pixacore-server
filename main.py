@@ -493,10 +493,18 @@ async def setup_rag_graph():
         conninfo=postgres_url,
         min_size=1,
         max_size=3,
+        timeout=5,  # Quick timeout for getting connections
+        max_idle=300,  # 5 minutes before closing idle connections
+        max_lifetime=1800,  # 30 minutes max connection lifetime
+        reconnect_timeout=60,  # 1 minute to retry failed connections
         kwargs={
             "autocommit": True,
             "row_factory": dict_row,
             "prepare_threshold": None,
+            "connect_timeout": 10,
+            "keepalives_idle": 300,    # Start keepalives after 5 min
+            "keepalives_interval": 30,  # Keepalive every 30 seconds
+            "keepalives_count": 3,      # 3 failed keepalives = dead connection
         }
     )
     
