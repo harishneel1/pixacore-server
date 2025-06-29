@@ -488,23 +488,23 @@ async def setup_rag_graph():
     if not postgres_url:
         raise ValueError("POSTGRES_URL environment variable is required")
 
-    # Create connection pool with proper settings
     connection_pool = AsyncConnectionPool(
         conninfo=postgres_url,
         min_size=1,
         max_size=3,
-        timeout=5,  # Quick timeout for getting connections
-        max_idle=300,  # 5 minutes before closing idle connections
-        max_lifetime=1800,  # 30 minutes max connection lifetime
-        reconnect_timeout=60,  # 1 minute to retry failed connections
+        timeout=5,
+        max_idle=300,
+        max_lifetime=1800,
+        reconnect_timeout=60,
         kwargs={
             "autocommit": True,
             "row_factory": dict_row,
             "prepare_threshold": None,
             "connect_timeout": 10,
-            "keepalives_idle": 300,    # Start keepalives after 5 min
-            "keepalives_interval": 30,  # Keepalive every 30 seconds
-            "keepalives_count": 3,      # 3 failed keepalives = dead connection
+            # THESE ARE THE ONLY CHANGES - More aggressive keepalives:
+            "keepalives_idle": 60,      # Changed from 300 to 60 (start keepalives after 1 minute)
+            "keepalives_interval": 10,  # Changed from 30 to 10 (send keepalive every 10 seconds)
+            "keepalives_count": 3,      # Keep this the same
         }
     )
     
