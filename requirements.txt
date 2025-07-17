@@ -13,6 +13,7 @@ langgraph-checkpoint-postgres==2.0.21
 langchain-openai==0.3.19
 langchain-chroma==0.2.4
 langchain-cohere==0.4.4
+cohere==5.13.3
 
 # Observability
 langsmith==0.3.44
